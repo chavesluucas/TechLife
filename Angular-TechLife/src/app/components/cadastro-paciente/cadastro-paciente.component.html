@@ -1,0 +1,104 @@
+<div *ngIf="msgRetorno | async" class="row">
+  <div class="col">
+    <div class="alert alert-success" role="alert">
+      Paciente <b>#{{ formCadastro.id }} - {{ formCadastro.nome }}</b> criado
+      com sucesso!
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <h2 class="text-dark font-weight-bold hidden">Novo Paciente</h2>
+    <hr />
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <form>
+      <div class="form-group">
+        <label for="formControlInput">Nome do Paciente</label>
+        <input
+          type="text"
+          name="nome"
+          class="form-control"
+          id="nome"
+          placeholder="Nome Completo"
+          [(ngModel)]="cadastroInsert.nome"
+        />
+      </div>
+      <div class="form-group">
+        <label for="formControlInput">CPF</label>
+        <input
+          type="text"
+          name="cpf"
+          class="form-control"
+          id="cpf"
+          placeholder="CPF"
+          [(ngModel)]="cadastroInsert.cpf"
+        />
+      </div>
+      <div class="form-group">
+        <label for="formControlInput">Idade</label>
+        <input type="text" 
+               class="form-control" 
+               name="idade"
+               id="idade" 
+               placeholder="idade"
+               [(ngModel)]="cadastroInsert.idade" />
+      </div>
+      <div class="form-group">
+        <label for="formControlInput">Endereço</label>
+        <input
+          type="text"
+          class="form-control"
+          id="endereco"
+          name="endereco"
+          placeholder="Rua nome da rua, 000"
+          [(ngModel)]="cadastroInsert.endereco"
+        />
+      </div>
+      <!-- <div class="form-group">
+        <label for="formControlSelect">Prioridade</label>
+        <select class="form-control" 
+                id="prioridade"
+                name="prioridade"
+                [(ngModel)]="cadastroInsert.prioridade"
+                placeHolder="Prioridade">
+                <option value="">Prioridade...</option>
+                <option *ngFor="let paciente of pacientesList | async" value="{{paciente.prioridade}}">{{paciente.prioridade}}</option>   
+        </select>
+      </div> -->
+
+      <div class="form-group">
+        <label for="formControlSelect">Prioridade</label>
+        <select class="form-control" 
+                id="prioridade"
+                name="prioridade"
+                [(ngModel)]="cadastroInsert.prioridade"
+                placeHolder="Prioridade">
+          <option value="">Selecione uma prioridade...</option>
+          <option value="1" class="form-control" 
+          id="gravissima"
+          name="gravissima"
+          [(ngModel)]="cadastroInsert.prioridade.gravissima"
+          ngDefaultControl>GRAVISSIMA</option>
+          <option value="2">GRAVE</option>
+          <option value="3">MEDIO</option>
+          <option value="4">LEVE</option>
+        </select>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="d-flex justify-content-center">
+        <!-- 3 - Ao preencher os dados e dar um save -->
+        <button style="width: 40vw; letter-spacing: 2px;" (click)="save()" class="btn btn-sm btn-success mr-2">CRIAR CADASTRO</button>
+        <!-- 4 - Salva no banco com o método save no controller e atribui 'false' para o 'status' através do método cancel -->
+    </div>
+  </div>
+</div>
+
+
+

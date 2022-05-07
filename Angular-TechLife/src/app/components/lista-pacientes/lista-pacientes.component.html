@@ -1,0 +1,83 @@
+
+<div class="container">
+  <div class="row">
+    <legend class="col-10">Pacientes</legend>
+    <button routerLink="/paciente-add" class="btn btn-success col-2"> &plus; Novo Paciente </button>
+  </div>
+  <hr>
+</div>
+<div class="container">
+  <div class="row">
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Cpf</th>
+              <th scope="col">Idade</th>
+              <th scope="col">Endereço</th>
+              <th scope="col">Prioridade</th>
+              <th scope="col"> </th>
+
+            </tr>
+          </thead>
+          <tbody *ngFor="let paciente of listaPacientes$ | async">
+            <tr>
+              <th scope="row">{{paciente.id}}</th>
+              <td>{{ paciente.nome}}</td>
+              <td>{{ paciente.cpf}}</td>
+              <td>{{ paciente.idade}}</td>
+              <td>{{ paciente.endereco}}</td>
+              <td>{{paciente.prioridade}}</td>
+              <td>
+                <div class="btn-paciente">
+                  <div class="col-6">
+                    <div [ngSwitch]="paciente.flAtivo">
+                      <div *ngSwitchCase="true">
+                        <input type="checkbox" checked="checked"
+                        (change)="toggleAtivo(paciente.id)"
+                        class="custom-control-input" id="flAtivo_{{paciente.id}}">
+                        <label class="custom-control-label" for="flAtivo_{{paciente.id}}">Em atendimento</label>
+                      </div>
+        
+                      <div *ngSwitchCase="false">
+                        <input type="checkbox"
+                        (change)="toggleAtivo(paciente.id)"
+                        class="custom-control-input" id="flAtivo_{{paciente.id}}">
+                        <label class="custom-control-label" for="flAtivo_{{paciente.id}}">Atendido</label>
+                      </div>
+                    </div>
+                  </div>
+
+                <div class="col-2 mr-2">
+                  <span class="text-danger">
+                    <button (click)="confirmAction(paciente)"
+                    class="btn btn-info btn-sm font-weight-bold"
+                    data-toggle="modal"
+                    data-target="#modalSaveNota">Editar</button>
+                  </span>
+                </div>
+
+                <div class="col-2 mr-2">
+                  <span class="text-danger">
+                    <button (click)="delete(paciente.id)" class="btn btn-info btn-sm font-weight-bold">Deletar</button>
+                  </span>
+                </div>
+              </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+  </div>
+</div>
+
+
+<div id="modal-save-container">
+  <app-update-modal-paciente
+  [cadastroSave]="cadastroAction"
+
+  [statusSave$]="monitoraStatusAction$"  
+  ></app-update-modal-paciente>
+</div>
