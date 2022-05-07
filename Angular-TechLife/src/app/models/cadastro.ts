@@ -7,7 +7,7 @@ export class Cadastro {
   idade?: number;
   endereco?: string;
   flAtivo?: boolean;
-  prioridade: Prioridade = new Prioridade({});
+  // prioridade: Prioridade = new Prioridade({});
 
   constructor(obj: Partial<Cadastro>) {
     Object.assign(this, obj);

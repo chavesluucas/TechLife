@@ -16,27 +16,33 @@ export class CadastroPacienteComponent implements OnInit {
   @Input()
   cadastroInsert = new Cadastro({});
 
-  pacientesList = new Observable<Cadastro[]>();
-
   formCadastro: Cadastro = new Cadastro({});
 
   msgRetorno = new Subject<boolean>();
   constructor(private service: PacientesService) { }
 
   ngOnInit(): void {
-
   }
 
   save() {
-    this.service
-        .insertPaciente(this.formCadastro)
-        .subscribe(
-          (cadastro) => {
-            if(cadastro.id) {
-              this.formCadastro = cadastro;
-              this.msgRetorno.next(true);
+    if(this.validate()) {
+      this.service
+          .insertPaciente(this.cadastroInsert)
+          .subscribe(
+            (cadastroSaved) => {
+              if(cadastroSaved.id) {
+                this.formCadastro = cadastroSaved;
+                this.msgRetorno.next(true);
+              }
             }
-          }
-        )
+          )
+    }
+  }
+
+  validate() {
+    if(typeof this.cadastroInsert == 'undefined') {
+      return false;
+    }
+    return true;
   }
 }
