@@ -6,9 +6,7 @@ import br.com.techlife.pacientes.data.entity.Cadastro;
 import br.com.techlife.pacientes.data.enums.Prioridade;
 
 public class CadastroDTO implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 1L;	
 	
 	private Integer id;
 	private String nome;

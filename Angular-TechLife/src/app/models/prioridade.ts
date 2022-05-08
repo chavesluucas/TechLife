@@ -1,5 +1,5 @@
 export class Prioridade {
-    GRAVISSIMA?: string = 'GRAVISSIMA';
+    GRAVISSIMA: string = 'GRAVISSIMA';
 	GRAVE: string = "GRAVE";
 	MEDIO: string = "MEDIO";
 	LEVE: string = "LEVE";

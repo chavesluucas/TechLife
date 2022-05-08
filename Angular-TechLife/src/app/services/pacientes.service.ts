@@ -21,6 +21,10 @@ export class PacientesService {
   }
 
   insertPaciente(paciente: Cadastro) {
+    if(paciente.id &&
+       paciente.id > 0) {
+         return this.updatePaciente(paciente);
+       }
     return this.http.post<Cadastro>(this.urlApi, paciente);
   }
 
