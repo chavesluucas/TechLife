@@ -1,7 +1,7 @@
 <div *ngIf="msgRetorno | async" class="row">
   <div class="col">
     <div class="alert alert-success" role="alert">
-      Paciente <b>#{{ formCadastro.id }} - {{ formCadastro.nome }}</b> criado
+      Paciente <b>#{{ formCadastro.nome }}</b> criado
       com sucesso!
     </div>
   </div>
@@ -40,11 +40,12 @@
       <div class="form-group">
         <label for="formControlInput">Idade</label>
         <input type="text" 
-               class="form-control" 
                name="idade"
                id="idade" 
+               [(ngModel)]="cadastroInsert.idade"
                placeholder="idade"
-               [(ngModel)]="cadastroInsert.idade" />
+               class="form-control" 
+                />
       </div>
       <div class="form-group">
         <label for="formControlInput">Endereço</label>
@@ -56,6 +57,17 @@
           placeholder="Rua nome da rua, 000"
           [(ngModel)]="cadastroInsert.endereco"
         />
+      </div>
+      <div class="form-group">
+        <label for="formControlInput">Situação do atendimento</label>
+        <div class="custom-control custom-switch">
+          <input type="checkbox"
+                 class="custom-control-input" 
+                 id="flAtivo" 
+                 name="flAtivo" 
+                 [(ngModel)]="cadastroInsert.flAtivo">
+          <label class="custom-control-label" for="flAtivo">Em atendimento</label>
+        </div>
       </div>
       <!-- <div class="form-group">
         <label for="formControlSelect">Prioridade</label>
@@ -69,7 +81,7 @@
         </select>
       </div> -->
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="formControlSelect">Prioridade</label>
         <select class="form-control" 
                 id="prioridade"
@@ -86,7 +98,7 @@
           <option value="3">MEDIO</option>
           <option value="4">LEVE</option>
         </select>
-      </div>
+      </div> -->
     </form>
   </div>
 </div>
