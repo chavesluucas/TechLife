@@ -14,6 +14,7 @@ public class CadastroDTO implements Serializable {
 	private Integer idade;
 	private String endereco;
 	private Boolean flAtivo;
+	
 	private Integer prioridade;
 	
 	public CadastroDTO() {}

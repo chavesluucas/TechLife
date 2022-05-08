@@ -1,7 +1,8 @@
 import { PacientesService } from './../../services/pacientes.service';
 import { Cadastro } from './../../models/cadastro';
-import { Subject, Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Component, OnInit, Input } from '@angular/core';
+import { Prioridade } from 'src/app/models/prioridade';
 
 @Component({
   selector: 'app-cadastro-paciente',
@@ -40,7 +41,7 @@ export class CadastroPacienteComponent implements OnInit {
   }
 
   validate() {
-    if(typeof this.cadastroInsert == 'undefined') {
+    if(typeof this.cadastroInsert.prioridade == 'undefined') {
       return false;
     }
     return true;
