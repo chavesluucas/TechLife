@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UpdateModalPacienteComponent } from './components/update-modal-paciente/update-modal-paciente.component';
 import { AtendimentoPacienteComponent } from './components/atendimento-paciente/atendimento-paciente.component';
 import { CardsPacienteComponent } from './components/cards-paciente/cards-paciente.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CardsPacienteComponent } from './components/cards-paciente/cards-pacien
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

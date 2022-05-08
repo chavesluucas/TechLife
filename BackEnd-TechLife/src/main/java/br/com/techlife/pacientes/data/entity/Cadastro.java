@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import br.com.techlife.pacientes.data.dto.CadastroDTO;
+import br.com.techlife.pacientes.data.enums.Prioridade;
 
 @Entity
 public class Cadastro {
@@ -19,19 +20,19 @@ public class Cadastro {
 	private String endereco;
 	private Boolean flAtivo;
 	
-//	private Integer prioridade;
+	private Integer prioridade;
 	
 	public Cadastro () { }
 
 
-	public Cadastro(Integer id, String nome, String cpf, Integer idade, String endereco, Boolean flAtivo) {
+	public Cadastro(Integer id, String nome, String cpf, Integer idade, String endereco, Boolean flAtivo, Prioridade prioridade) {
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.idade = idade;
 		this.endereco = endereco;
 		this.flAtivo = flAtivo;
-//		setPrioridade(prioridade);
+		setPrioridade(prioridade);
 	}
 
 	public CadastroDTO getDTO(){
@@ -40,7 +41,8 @@ public class Cadastro {
 							   getCpf(),
 							   getIdade(),
 							   getEndereco(),
-							   isFlAtivo());
+							   isFlAtivo(),
+							   getPrioridade());
 	}
 	
 	public Integer getId() {
@@ -93,14 +95,14 @@ public class Cadastro {
 		this.flAtivo = flAtivo;
 	}
 	
-//	public Prioridade getPrioridade() {
-//		return Prioridade.valueOf(prioridade);
-//	}
-//
-//
-//	public void setPrioridade(Prioridade prioridade) {
-//		if(prioridade != null) {
-//			this.prioridade = prioridade.getCode();			
-//		}
-//	}
+	public Prioridade getPrioridade() {
+		return Prioridade.valueOf(prioridade);
+	}
+
+
+	public void setPrioridade(Prioridade prioridade) {
+		if(prioridade != null) {
+			this.prioridade = prioridade.getCode();			
+		}
+	}
 }
