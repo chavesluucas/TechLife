@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UpdateModalPacienteComponent } from './components/update-modal-paciente/update-modal-paciente.component';
 import { AtendimentoPacienteComponent } from './components/atendimento-paciente/atendimento-paciente.component';
 import { CardsPacienteComponent } from './components/cards-paciente/cards-paciente.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CardsPacienteComponent } from './components/cards-paciente/cards-pacien
     NavbarComponent,
     UpdateModalPacienteComponent,
     AtendimentoPacienteComponent,
-    CardsPacienteComponent
+    CardsPacienteComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
