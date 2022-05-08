@@ -1,13 +1,15 @@
 package br.com.techlife.pacientes.data.enums;
 
-public enum Prioridade {
+import java.io.Serializable;
+
+public enum Prioridade implements Serializable {
 
 	GRAVISSIMA(1),
 	GRAVE(2),
 	MEDIO(3),
 	LEVE(4);
 	
-private int code;
+	private int code;
 	
 	private Prioridade(int code) {
 		this.code = code;

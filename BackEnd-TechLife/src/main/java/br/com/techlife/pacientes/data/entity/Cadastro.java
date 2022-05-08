@@ -1,5 +1,7 @@
 package br.com.techlife.pacientes.data.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,7 +11,8 @@ import br.com.techlife.pacientes.data.dto.CadastroDTO;
 import br.com.techlife.pacientes.data.enums.Prioridade;
 
 @Entity
-public class Cadastro {
+public class Cadastro implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -54,8 +54,8 @@ export class ListaPacientesComponent implements OnInit {
      }
      this.service
          .deletePaciente(id || 0)
-         .subscribe((resposta) => resposta ? this.list : '');
-     this.list();
+         .subscribe((resposta) => resposta ? this.list() : '');
+         this.list();
   }
 
   toggleAtivo(id?: number) {
