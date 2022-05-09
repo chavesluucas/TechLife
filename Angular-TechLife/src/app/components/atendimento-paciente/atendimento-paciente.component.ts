@@ -11,7 +11,7 @@ import { PacientesService } from 'src/app/services/pacientes.service';
 export class AtendimentoPacienteComponent implements OnInit {
 
   listaPacientes$ = new Observable<Cadastro[]>();
-  
+
   constructor(private service: PacientesService) { }
 
   ngOnInit(): void {
@@ -19,7 +19,7 @@ export class AtendimentoPacienteComponent implements OnInit {
   }
 
   list(){
-    this.listaPacientes$ = this.service.getPacientes();
+    this.listaPacientes$ = this.service.getPacientes(true);
   }
 
   toggleAtivo(id?: number) {

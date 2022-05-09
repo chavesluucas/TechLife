@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.techlife.pacientes.data.dto.CadastroDTO;
@@ -27,8 +28,12 @@ public class CadastroController {
 	CadastroService service;
 
 	@GetMapping
-	public List<CadastroDTO> getAll(){
-		return service.getAll();
+	public List<CadastroDTO> getAll(@RequestParam boolean somenteEmAtendimento){
+		if(somenteEmAtendimento) {
+			return service.getSomenteEmAtendimento();
+		} else {
+			return service.getAll();
+		}
 	}
 	
 	@GetMapping("/{id}")
