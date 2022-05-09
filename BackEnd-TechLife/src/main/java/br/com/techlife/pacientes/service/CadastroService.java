@@ -63,4 +63,16 @@ public class CadastroService {
 		cad.setFlAtivo(!cad.isFlAtivo());
 		return save(cad.getDTO()).getId() > 0;
 	}
+
+
+	public List<CadastroDTO> getSomenteEmAtendimento() {
+		List<Cadastro> cadastros = repository.findByFlAtivo(true);
+		List<CadastroDTO> listDTOs = new ArrayList<>();
+		
+		for(Cadastro cadastro : cadastros) {
+			listDTOs.add(cadastro.getDTO()); 
+		}
+		
+		return listDTOs;
+	}
 }
