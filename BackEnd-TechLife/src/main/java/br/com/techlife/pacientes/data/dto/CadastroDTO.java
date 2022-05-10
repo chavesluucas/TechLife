@@ -3,7 +3,6 @@ package br.com.techlife.pacientes.data.dto;
 import java.io.Serializable;
 
 import br.com.techlife.pacientes.data.entity.Cadastro;
-import br.com.techlife.pacientes.data.enums.Prioridade;
 
 public class CadastroDTO implements Serializable {
 	private static final long serialVersionUID = 1L;	
@@ -15,19 +14,17 @@ public class CadastroDTO implements Serializable {
 	private String endereco;
 	private Boolean flAtivo;
 	
-	private Integer prioridade;
-	
 	public CadastroDTO() {}
 
-	public CadastroDTO(Integer id, String nome, String cpf, Integer idade, String endereco, Boolean flAtivo, Prioridade prioridade) {
+	public CadastroDTO(Integer id, String nome, String cpf, Integer idade, String endereco, Boolean flAtivo) {
 		
 		this.id = id;
 		this.nome = nome;
+		this.cpf = cpf;
 		this.idade = idade;
 		this.endereco = endereco;
 		this.flAtivo = flAtivo;
-		this.cpf = cpf;
-		setPrioridade(prioridade);
+		
 	}
 	
 	public Cadastro convertToEntity() {
@@ -36,9 +33,8 @@ public class CadastroDTO implements Serializable {
 				            getCpf(),
 				            getIdade(), 
 				            getEndereco(), 
-				            isFlAtivo(),
-				            getPrioridade());
-	}
+				            isFlAtivo());
+	};
 
 	public Integer getId() {
 		return id;
@@ -94,13 +90,5 @@ public class CadastroDTO implements Serializable {
 		this.flAtivo = flAtivo;
 	}
 
-	public Prioridade getPrioridade() {
-		return Prioridade.valueOf(prioridade);
-	}
-
-	public void setPrioridade(Prioridade prioridade) {
-		if(prioridade != null) {
-			this.prioridade = prioridade.getCode();			
-		}
-	}
+	
 }

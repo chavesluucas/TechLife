@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import br.com.techlife.pacientes.data.dto.CadastroDTO;
-import br.com.techlife.pacientes.data.enums.Prioridade;
 
 @Entity
 public class Cadastro implements Serializable {
@@ -23,19 +22,16 @@ public class Cadastro implements Serializable {
 	private String endereco;
 	private Boolean flAtivo;
 	
-	private Integer prioridade;
-	
 	public Cadastro () { }
 
 
-	public Cadastro(Integer id, String nome, String cpf, Integer idade, String endereco, Boolean flAtivo, Prioridade prioridade) {
+	public Cadastro(Integer id, String nome, String cpf, Integer idade, String endereco, Boolean flAtivo) {
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.idade = idade;
 		this.endereco = endereco;
 		this.flAtivo = flAtivo;
-		setPrioridade(prioridade);
 	}
 
 	public CadastroDTO getDTO(){
@@ -44,8 +40,7 @@ public class Cadastro implements Serializable {
 							   getCpf(),
 							   getIdade(),
 							   getEndereco(),
-							   isFlAtivo(),
-							   getPrioridade());
+							   isFlAtivo());
 	}
 	
 	public Integer getId() {
@@ -96,16 +91,5 @@ public class Cadastro implements Serializable {
 
 	public void setFlAtivo(Boolean flAtivo) {
 		this.flAtivo = flAtivo;
-	}
-	
-	public Prioridade getPrioridade() {
-		return Prioridade.valueOf(prioridade);
-	}
-
-
-	public void setPrioridade(Prioridade prioridade) {
-		if(prioridade != null) {
-			this.prioridade = prioridade.getCode();			
-		}
 	}
 }
