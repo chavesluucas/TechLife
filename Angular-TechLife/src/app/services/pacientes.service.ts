@@ -12,8 +12,8 @@ export class PacientesService {
 
   constructor(private http: HttpClient) { }
 
-  getPacientes() {
-    return this.http.get<Cadastro[]>(this.urlApi);
+  getPacientes(somenteEmAtendimento: boolean = false) {
+    return this.http.get<Cadastro[]>(`${this.urlApi}?somenteEmAtendimento=${somenteEmAtendimento}`);
   }
 
   getPacientebById(id: number) {

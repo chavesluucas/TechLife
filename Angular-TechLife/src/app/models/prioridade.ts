@@ -1,10 +1,10 @@
-export class Prioridade {
-    GRAVISSIMA: string = 'GRAVISSIMA';
-	GRAVE: string = 'GRAVE';
-	MEDIO: string = 'MEDIO';
-	LEVE: string = 'LEVE';
+// export class Prioridade {
+//     id?: number;
+//     title?: string;
+//     color?: string;
+//     order?: number;
 
-    constructor(obj: Partial<Prioridade>) {
-        Object.assign(obj, this);
-    }
-}
+//     constructor(obj: Partial<Prioridade>) {
+//         Object.assign(obj, this);
+//     }
+// }
