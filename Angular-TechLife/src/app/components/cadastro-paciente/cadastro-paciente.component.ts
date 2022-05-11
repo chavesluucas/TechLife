@@ -1,7 +1,8 @@
 import { PacientesService } from './../../services/pacientes.service';
 import { Cadastro } from './../../models/cadastro';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 // import { Prioridade } from 'src/app/models/prioridade';
 
 @Component({
@@ -20,9 +21,20 @@ export class CadastroPacienteComponent implements OnInit {
   formCadastro: Cadastro = new Cadastro({});
 
   msgRetorno = new Subject<boolean>();
-  constructor(private service: PacientesService) { }
+
+  titleScreen: string = '';
+
+  listaPrioridades$ = new Observable<Cadastro[]>();
+  constructor(private service: PacientesService,
+              private router: Router) { }
 
   ngOnInit(): void {
+    if(this.cadastroInsert.id) {
+      this.titleScreen = `A Editar Paciente ${this.cadastroInsert.nome}`;
+    }
+    else {
+      this.titleScreen = 'Novo Paciente';
+    }
   }
 
   save() {
@@ -34,6 +46,7 @@ export class CadastroPacienteComponent implements OnInit {
               if(cadastroSaved.id) {
                 this.formCadastro = cadastroSaved;
                 this.msgRetorno.next(true);
+                this.cancel();
               }
             }
           )
@@ -45,5 +58,13 @@ export class CadastroPacienteComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  cancel() {
+    this.status.next(false);
+
+    setTimeout(() => {
+      this.router.navigate(['/','lista-pacientes']);
+    }, 2000)
   }
 }

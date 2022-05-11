@@ -19,7 +19,7 @@ export class AtendimentoPacienteComponent implements OnInit {
   }
 
   list(){
-    this.listaPacientes$ = this.service.getPacientes();
+    this.listaPacientes$ = this.service.getPacientes(true);
   }
 
   toggleAtivo(id?: number) {

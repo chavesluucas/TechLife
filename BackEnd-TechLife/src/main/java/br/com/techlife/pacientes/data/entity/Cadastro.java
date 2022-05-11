@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import br.com.techlife.pacientes.data.dto.CadastroDTO;
 
@@ -22,16 +23,19 @@ public class Cadastro implements Serializable {
 	private String endereco;
 	private Boolean flAtivo;
 	
+	@OneToOne
+	private Prioridade prioridade;
+	
 	public Cadastro () { }
 
-
-	public Cadastro(Integer id, String nome, String cpf, Integer idade, String endereco, Boolean flAtivo) {
+	public Cadastro(Integer id, String nome, String cpf, Integer idade, String endereco, Boolean flAtivo, Prioridade prioridade) {
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.idade = idade;
 		this.endereco = endereco;
 		this.flAtivo = flAtivo;
+		this.prioridade = prioridade;
 	}
 
 	public CadastroDTO getDTO(){
@@ -40,7 +44,8 @@ public class Cadastro implements Serializable {
 							   getCpf(),
 							   getIdade(),
 							   getEndereco(),
-							   isFlAtivo());
+							   isFlAtivo(),
+							   getPrioridade());
 	}
 	
 	public Integer getId() {
@@ -92,4 +97,17 @@ public class Cadastro implements Serializable {
 	public void setFlAtivo(Boolean flAtivo) {
 		this.flAtivo = flAtivo;
 	}
+
+
+	public Prioridade getPrioridade() {
+		return prioridade;
+	}
+
+
+	public void setPrioridade(Prioridade prioridade) {
+		this.prioridade = prioridade;
+	}
+	
+	
+	
 }

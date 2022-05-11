@@ -1,6 +1,6 @@
 .body-card{
-    width: 60%;
-    height: 60%;
+    width: 60vp;
+    height: 60vh;
     position:static;
     justify-content: space-between;
 }
@@ -67,4 +67,9 @@
 
 section.card-paciente:first-child{
     margin-left: 0;
+}
+
+.card-container {
+    position: relative;
+    top: 20vh;
 }
