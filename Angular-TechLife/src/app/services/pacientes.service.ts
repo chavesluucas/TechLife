@@ -2,6 +2,8 @@ import { Cadastro } from './../models/cadastro';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Prioridade } from '../models/prioridade';
 
 @Injectable({
   providedIn: 'root'
@@ -39,4 +41,10 @@ export class PacientesService {
   toggleAtivo(id?: number) {
     return this.http.put<boolean>(`${this.urlApi}/toggleAtivo`, id);
    }
+
+  //  Prioridade
+
+  getPrioridade(): Observable<Prioridade[]> {
+    return this.http.get<Prioridade[]>(`${environment.urlApiPaciente}/api/prioridade`);
+  }
 }

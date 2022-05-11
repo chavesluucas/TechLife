@@ -13,6 +13,7 @@ import { AtendimentoPacienteComponent } from './components/atendimento-paciente/
 import { CardsPacienteComponent } from './components/cards-paciente/cards-paciente.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { FooterComponent } from './components/footer/footer.component';
+import { DeleteModalPacienteComponent } from './components/delete-modal-paciente/delete-modal-paciente.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FooterComponent } from './components/footer/footer.component';
     UpdateModalPacienteComponent,
     AtendimentoPacienteComponent,
     CardsPacienteComponent,
-    FooterComponent
+    FooterComponent,
+    DeleteModalPacienteComponent
   ],
   imports: [
     BrowserModule,
