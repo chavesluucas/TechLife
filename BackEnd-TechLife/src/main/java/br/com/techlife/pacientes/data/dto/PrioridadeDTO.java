@@ -1,5 +1,11 @@
 package br.com.techlife.pacientes.data.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import br.com.techlife.pacientes.data.entity.Cadastro;
 import br.com.techlife.pacientes.data.entity.Prioridade;
 
 public class PrioridadeDTO {
@@ -8,6 +14,9 @@ public class PrioridadeDTO {
 	private String title;
 	private String color;
 	private Integer priorityOrder;
+
+	@JsonIgnore
+	private List<Cadastro> cadastro = new ArrayList<>();
 	
 	public PrioridadeDTO(Integer id, String title, String color, Integer priorityOrder) {
 		this.id = id;
@@ -68,8 +77,12 @@ public class PrioridadeDTO {
 	public void setpriorityOrder(Integer priorityOrder) {
 		this.priorityOrder = priorityOrder;
 	}
-	
-	
-	
-	
+
+	public List<Cadastro> getCadastro() {
+		return cadastro;
+	}
+
+	public void setCadastro(List<Cadastro> cadastro) {
+		this.cadastro = cadastro;
+	}	
 }

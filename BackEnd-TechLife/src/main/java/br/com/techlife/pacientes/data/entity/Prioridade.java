@@ -25,6 +25,7 @@ public class Prioridade implements Serializable {
 		this.title = title;
 		this.color = color;
 		this.priorityOrder = priorityOrder;
+
 	}
 	
 	public Prioridade() { }
@@ -66,7 +67,4 @@ public class Prioridade implements Serializable {
 		return priorityOrder;
 	}
 
-	public void setpriorityOrder(Integer priorityOrder) {
-		this.priorityOrder = priorityOrder;
-	}
 }

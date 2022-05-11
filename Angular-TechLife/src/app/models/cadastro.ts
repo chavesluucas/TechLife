@@ -1,4 +1,4 @@
-// import { Prioridade } from "./prioridade";
+import { Prioridade } from "./prioridade";
 
 export class Cadastro {
   id?: number;
@@ -7,7 +7,7 @@ export class Cadastro {
   idade?: number;
   endereco?: string;
   flAtivo?: boolean;
-  // prioridade: Prioridade = new Prioridade({});
+  prioridade: Prioridade = new Prioridade({});
 
   constructor(obj: Partial<Cadastro>) {
     Object.assign(this, obj);
