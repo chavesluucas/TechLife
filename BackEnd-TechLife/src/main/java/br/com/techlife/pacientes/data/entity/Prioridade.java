@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.techlife.pacientes.data.dto.PrioridadeDTO;
 
 @Entity
@@ -30,7 +32,7 @@ public class Prioridade implements Serializable {
 	
 	public Prioridade() { }
 	
-	
+	@JsonIgnore
 	public PrioridadeDTO getDTO(){
 		return new PrioridadeDTO(getId(), 
 							   getTitle(),

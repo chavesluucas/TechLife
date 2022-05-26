@@ -8,7 +8,7 @@
 </div>
 <div class="row">
   <div class="col">
-    <h2 class="text-dark font-weight-bold hidden"> {{titleScreen}} </h2>
+    <h2 class="text-dark font-weight-bold hidden"> Formulário </h2>
     <hr />
   </div>
 </div>
@@ -71,52 +71,17 @@
       </div>
 
       <!-- Prioridade  -->
-      <!-- <div class="form-group">
+      <div class="form-group">
         <select  name="prioridade"
                  id="prioridade"
                  [(ngModel)]="cadastroInsert.prioridade.id"
-                 placeholder="some priority..."
                  class="form-control">
                  <option value="">Prioridade...</option>
-                 <option *ngFor="let cadastro of listaPrioridades$ | async" value="{{cadastro.prioridade.title}}"></option>
-        
+                 <option *ngFor="let prioridade of listaPrioridades$ | async" 
+                          value="{{prioridade?.id}}">
+                          {{prioridade?.title}}</option>
         </select>
-      </div> -->
-<!--  Alterar para o model de prioridade -->
-      <!-- <div class="form-group">
-        <label for="formControlSelect">Prioridade</label>
-        <select class="form-control" 
-                id="prioridade"
-                name="prioridade"
-                [(ngModel)]="cadastroInsert.prioridade"
-                placeHolder="Prioridade">
-          <option value="">Selecione uma prioridade...</option>
-          <option value="GRAVISSIMA" 
-                  class="form-control" 
-                  id="GRAVISSIMA"
-                  name="GRAVISSIMA"
-                  [(ngModel)]="cadastroInsert.prioridade.GRAVISSIMA"
-                  ngDefaultControl>Gravíssima</option>
-          <option value="GRAVE" 
-                  class="form-control" 
-                  id="GRAVE"
-                  name="GRAVE"
-                  [(ngModel)]="cadastroInsert.prioridade.GRAVE"
-                  ngDefaultControl>Grave</option>
-          <option value="MEDIO" 
-                  class="form-control" 
-                  id="MEDIO"
-                  name="MEDIO"
-                  [(ngModel)]="cadastroInsert.prioridade.MEDIO"
-                  ngDefaultControl>Médio</option>
-          <option value="4" 
-                  class="form-control" 
-                  id="LEVE"
-                  name="LEVE"
-                  [(ngModel)]="cadastroInsert.prioridade.LEVE"
-                  ngDefaultControl>Leve</option>
-        </select>
-      </div> -->
+      </div>
     </form>
   </div>
 </div>

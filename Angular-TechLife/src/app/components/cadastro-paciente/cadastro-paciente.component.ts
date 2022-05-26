@@ -3,6 +3,7 @@ import { Cadastro } from './../../models/cadastro';
 import { Observable, Subject } from 'rxjs';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Prioridade } from 'src/app/models/prioridade';
 // import { Prioridade } from 'src/app/models/prioridade';
 
 @Component({
@@ -16,25 +17,22 @@ export class CadastroPacienteComponent implements OnInit {
   status = new Subject<boolean>();
 
   @Input()
-  cadastroInsert = new Cadastro({});
+  cadastroInsert = new Cadastro({prioridade: new Prioridade({})});
 
-  formCadastro: Cadastro = new Cadastro({});
+  formCadastro: Cadastro = new Cadastro({prioridade: new Prioridade({})});
 
   msgRetorno = new Subject<boolean>();
 
-  titleScreen: string = '';
-
-  listaPrioridades$ = new Observable<Cadastro[]>();
+  listaPrioridades$ = new Observable<Prioridade[]>();
   constructor(private service: PacientesService,
               private router: Router) { }
 
   ngOnInit(): void {
-    if(this.cadastroInsert.id) {
-      this.titleScreen = `A Editar Paciente ${this.cadastroInsert.nome}`;
-    }
-    else {
-      this.titleScreen = 'Novo Paciente';
-    }
+    this.getAllPrioridades();
+  }
+
+  getAllPrioridades() {
+    this.listaPrioridades$ = this.service.getPrioridade();
   }
 
   save() {
